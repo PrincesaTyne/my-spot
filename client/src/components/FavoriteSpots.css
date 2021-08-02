@@ -1,0 +1,45 @@
+.favorite-container {
+    width: 100%;
+    min-height: 500px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(241, 244, 245, 0.932);
+
+}
+
+.favoriteSpot {
+    background-color: white;
+    width: 70%;
+    min-height: 400px;
+    padding: 30px 50px;
+    margin: 40px;
+}
+
+.spots-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.spots-list li{
+    list-style: none;
+    display: flex;
+    margin: 20px 50px;
+    width: 60%;
+    
+}
+
+.delete {
+    margin: 10px 40px;
+    width: 40%;
+}
+
+.delete button {
+    margin: 0;
+    color: red;
+}
+
+.delete button:hover {
+    margin: 0;
+    color: rgba(15, 106, 148, 0.692);
+}

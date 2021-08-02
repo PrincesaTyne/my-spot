@@ -1,0 +1,34 @@
+.map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#marker {
+    background-size: cover;
+    background-color: rgba(21, 59, 77, 0.932);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#marker-home {
+    background-size: cover;
+    background-color: brown;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.click-here {
+    position: absolute;
+    z-index: 1;
+    font-style: italic;
+    font-size: 15px;
+    bottom: 0;
+    margin-bottom: 20px;
+}

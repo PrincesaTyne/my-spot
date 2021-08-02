@@ -1,0 +1,26 @@
+.container {
+    background: rgba(241, 244, 245, 0.932);
+    display: flex;
+    justify-content: center;
+    min-height: 450px;
+    padding: 40px;
+}
+
+.login {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    width: 50%;
+    min-height: 300px;
+}
+
+.login-button {
+    font-size: 17px;
+    padding: 5px;
+    color: white;
+    border: 0px;
+    background-color:rgb(233, 4, 4);
+    width: 50%;
+}

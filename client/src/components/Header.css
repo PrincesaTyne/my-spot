@@ -1,0 +1,54 @@
+.header{
+    text-decoration: none;
+}
+
+.header h1 {
+    margin: 0;
+    display: flex;
+    color: rgba(21, 59, 77, 0.932);
+
+}
+
+.navOne{
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    max-height: 60px;
+}
+
+.navTwo {
+    background-color: rgba(15, 106, 148, 0.692);
+    padding: 17px;
+    display: flex;
+}
+
+.navTwo .nav-link{
+    padding: 0px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.login-container {
+    margin: 10px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.login-container img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.login-btn {
+    font-size: 16px;
+    color: white;
+    background-color: rgba(21, 59, 77, 0.932);
+    padding: 8px;
+    border: none;
+    border-radius: 50px;
+    margin: 10px;
+    margin-left: auto;
+    text-decoration: none;
+}
