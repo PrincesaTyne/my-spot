@@ -4,9 +4,14 @@ import firebase from './firebase'
 import './Authentication.css'
 import { AuthContext } from './AuthContext'
 import { db } from './firebase'
+import { History } from 'history'
 
-const Login: React.FC = ({history}: any) => {
-    const { currentUser }: any = useContext(AuthContext)
+type LoginType = {
+    history: History
+}
+
+const Login = ({history}: LoginType) => {
+    const { currentUser } = useContext(AuthContext)
 
     const onSubmit = useCallback(event => {
         event.preventDefault()

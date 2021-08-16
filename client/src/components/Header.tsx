@@ -1,11 +1,11 @@
 import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
-import {AuthContext} from './Authentication/AuthContext'
+import {AuthContext, ContextType} from './Authentication/AuthContext'
 import firebase from './Authentication/firebase'
 
-const Header: React.FC = () => {
-  const { currentUser }: any = useContext(AuthContext)
+const Header= () => {
+  const { currentUser }  = useContext<ContextType>(AuthContext)
 
   function logOut(){
     firebase.auth().signOut().then(()=>{
@@ -18,9 +18,9 @@ const Header: React.FC = () => {
       <div className='navOne'>
         <h1>My spot</h1>
         {
-          currentUser ? (
+          currentUser  ? (
             <div className='login-container' onClick={logOut} >
-                <img src={currentUser.photoURL} alt='Profile' />
+                <img src={currentUser.photoURL as string} alt='Profile' />
             </div>
             
           ) : (

@@ -6,10 +6,10 @@ import DropdownMenu from './DropdownMenu'
 const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_TOKEN}`
 
-export let markers: any = []
-export let map: any
+export let markers: Array<mapboxgl.EventData>
+export let map: mapboxgl.Map
 
-const Map: React.FC = () => {
+const Map = () => {
   const mapContainerRef = useRef(null)
   
   useEffect(()=> {
@@ -31,7 +31,7 @@ const Map: React.FC = () => {
 
     map.addControl( new mapboxgl.NavigationControl(), 'bottom-right')
 
-    map.on('click', function (event: any) {
+    map.on('click', function (event: mapboxgl.MapMouseEvent & mapboxgl.EventData) {
     
       fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${event.lngLat.lng},${event.lngLat.lat}.json?access_token=${mapboxgl.accessToken}`)
         .then((response)=>response.json())
