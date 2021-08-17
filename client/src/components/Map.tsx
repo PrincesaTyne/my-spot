@@ -1,6 +1,6 @@
 import React, { useRef, useEffect} from 'react'
 import mapboxgl from 'mapbox-gl'
-import './Map.css'
+import '../css/pages/Map.css'
 import DropdownMenu from './DropdownMenu'
 
 const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
@@ -36,7 +36,7 @@ const Map = () => {
       fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${event.lngLat.lng},${event.lngLat.lat}.json?access_token=${mapboxgl.accessToken}`)
         .then((response)=>response.json())
         .then((jsonObj)=>{
-          markers.push(jsonObj)
+          markers?.push(jsonObj)
 
           const popup = new mapboxgl.Popup({
             closeButton: false,

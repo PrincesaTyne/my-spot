@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { markers } from './Map'
-import './FavoriteSpots.css'
+import '../css/pages/FavoriteSpots.css'
 import mapboxgl from 'mapbox-gl'
 
 

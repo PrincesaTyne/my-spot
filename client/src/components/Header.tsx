@@ -1,6 +1,6 @@
 import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
-import './Header.css'
+import '../css/layout/Header.css'
 import {AuthContext, ContextType} from './Authentication/AuthContext'
 import firebase from './Authentication/firebase'
 
