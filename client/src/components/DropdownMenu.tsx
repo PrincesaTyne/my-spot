@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import '../css/components/DropdownMenu.css'
-import { map } from './Map'
+import { map } from '../pages/Map'
 
 const DropdownMenu: React.FC = () => {
     const dropdownRef = useRef<HTMLDivElement>(null);

@@ -1,8 +1,8 @@
 import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
-import '../css/layout/Header.css'
-import {AuthContext, ContextType} from './Authentication/AuthContext'
-import firebase from './Authentication/firebase'
+import '../../css/layout/Header.css'
+import {AuthContext, ContextType} from '../Authentication/AuthContext'
+import firebase from '../Authentication/firebase'
 
 const Header= () => {
   const { currentUser }  = useContext<ContextType>(AuthContext)

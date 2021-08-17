@@ -1,9 +1,9 @@
 import React, { useCallback, useContext } from 'react'
 import { Redirect } from 'react-router-dom'
-import firebase from './firebase'
-import './Authentication.css'
-import { AuthContext } from './AuthContext'
-import { db } from './firebase'
+import firebase from '../components/Authentication/firebase'
+import '../css/pages/Login.css'
+import { AuthContext } from '../components/Authentication/AuthContext'
+import { db } from '../components/Authentication/firebase'
 import { History } from 'history'
 
 type LoginType = {

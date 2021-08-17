@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import './css/pages/App.css';
-import Map from './components/Map';
-import FavoriteSpots from './components/FavoriteSpots'
-import Header from './components/Header';
-import Footer from './components/Footer';
-import About from './components/About';
-import Login from './components/Authentication/Login';
+import Map from './pages/Map';
+import FavoriteSpots from './pages/FavoriteSpots'
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import About from './pages/About';
+import Login from './pages/Login';
 import {AuthProvider} from './components/Authentication/AuthContext' 
 import PrivateRoute from './components/Authentication/PrivateRoute'
 
