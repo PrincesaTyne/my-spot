@@ -42,7 +42,7 @@ const Map = () => {
             closeButton: false,
             closeOnClick: false,
             offset: [0, -7]
-          }).setHTML(`<p><strong>${jsonObj.features[0].place_name}</strong></p>`)
+          }).setHTML(`<p><strong>${jsonObj?.features[0]?.place_name}</strong></p>`)
 
           const markerElement = document.createElement('div')
           markerElement.id = 'marker'

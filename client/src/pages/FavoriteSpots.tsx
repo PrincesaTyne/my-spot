@@ -8,7 +8,7 @@ const FavoriteSpots = () => {
     const [list, setList] = useState(markers)
 
     const handleDelete = useCallback((id)=>{
-        const newList = list.filter((item: mapboxgl.EventData) => item.features[0].id.toString() !== id)
+        const newList = list.filter((item: mapboxgl.EventData) => item?.features[0]?.id.toString() !== id)
         setList(newList)
     },[list])
    
@@ -27,11 +27,11 @@ const FavoriteSpots = () => {
             <ul className='spots-list'>
               {
                 list.map((spot: mapboxgl.EventData)=> 
-                  <li key={spot.features[0].id.toString()} >
-                  {spot.features[0].place_name.toString()}
+                  <li key={spot?.features[0]?.id.toString()} >
+                  {spot?.features[0]?.place_name.toString()}
                   <div 
                     className='delete' 
-                    onClick={ ()=> handleDelete(spot.features[0].id.toString()) }
+                    onClick={ ()=> handleDelete(spot?.features[0]?.id.toString()) }
                   >
                     <button> Remove </button>
                   </div>
