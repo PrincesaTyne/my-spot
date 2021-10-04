@@ -6,7 +6,7 @@ import DropdownMenu from '../components/DropdownMenu'
 const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_TOKEN}`
 
-export let markers: Array<mapboxgl.EventData>
+export let markers: Array<mapboxgl.EventData> = [];
 export let map: mapboxgl.Map
 
 const Map = () => {
@@ -71,7 +71,7 @@ const Map = () => {
     markerElement.onmouseleave = () => marker.togglePopup()
     
     return () => map.remove()
-  },[])
+  },[markers?.length])
 
   return (
     <div className="map" ref={mapContainerRef} >

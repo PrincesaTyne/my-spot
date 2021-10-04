@@ -13,13 +13,13 @@ const FavoriteSpots = () => {
     },[list])
    
     useEffect(()=>{
-    },[handleDelete, list])
+    },[handleDelete, list?.length])
 
   return(
     <div className='favorite-container'>
       <div className='favoriteSpot'>
         {
-          !markers.length ? (
+          !markers?.length ? (
             <div>
               <p>No favorite place added yet!</p>
             </div>
