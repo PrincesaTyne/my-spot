@@ -1,7 +1,7 @@
 import React from 'react'
-import './About.css'
+import '../css/pages/About.css'
 
-const About: React.FC = () => {
+const About = () => {
   return(
     <div className='about-container'>
       <div className='about' >

@@ -1,15 +1,15 @@
 import React, { useRef, useEffect} from 'react'
 import mapboxgl from 'mapbox-gl'
-import './Map.css'
-import DropdownMenu from './DropdownMenu'
+import '../css/pages/Map.css'
+import DropdownMenu from '../components/DropdownMenu'
 
 const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_TOKEN}`
 
-export let markers: any = []
-export let map: any
+export let markers: Array<mapboxgl.EventData> = [];
+export let map: mapboxgl.Map
 
-const Map: React.FC = () => {
+const Map = () => {
   const mapContainerRef = useRef(null)
   
   useEffect(()=> {
@@ -31,18 +31,18 @@ const Map: React.FC = () => {
 
     map.addControl( new mapboxgl.NavigationControl(), 'bottom-right')
 
-    map.on('click', function (event: any) {
+    map.on('click', function (event: mapboxgl.MapMouseEvent & mapboxgl.EventData) {
     
       fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${event.lngLat.lng},${event.lngLat.lat}.json?access_token=${mapboxgl.accessToken}`)
         .then((response)=>response.json())
         .then((jsonObj)=>{
-          markers.push(jsonObj)
+          markers?.push(jsonObj)
 
           const popup = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false,
             offset: [0, -7]
-          }).setHTML(`<p><strong>${jsonObj.features[0].place_name}</strong></p>`)
+          }).setHTML(`<p><strong>${jsonObj?.features[0]?.place_name}</strong></p>`)
 
           const markerElement = document.createElement('div')
           markerElement.id = 'marker'
@@ -71,7 +71,7 @@ const Map: React.FC = () => {
     markerElement.onmouseleave = () => marker.togglePopup()
     
     return () => map.remove()
-  },[])
+  },[markers?.length])
 
   return (
     <div className="map" ref={mapContainerRef} >

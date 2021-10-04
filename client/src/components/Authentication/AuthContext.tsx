@@ -1,28 +1,24 @@
 import React, { ReactNode, createContext, useEffect, useState } from "react"
 import firebase from './firebase'
 
-interface IAuth {
-  userId: string;
-  getAuth: boolean;
+type UserType = firebase.User | null
+
+export type ContextType = {
+  currentUser: UserType;
+  setCurrentUser: (state: UserType) => void;
 }
 
-interface IAuthContext {
-  currentUser: IAuth;
-  setCurrentUser: (state: IAuth) => void;
-}
-
-export const AuthContext = createContext<IAuthContext | null>(null)
-
-//  type IAuthContext = [IAuth[], React.Dispatch<React.SetStateAction<IAuth[]>>]
-
-// export const AuthContext = React.createContext<any>({})
+export const AuthContext = createContext<ContextType>({
+  currentUser: null,
+  setCurrentUser: () => {}
+})
 
 export const AuthProvider: React.FC<ReactNode> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({ userId: '', getAuth: false })
-  const [pending, setPending] = useState(true)
+  const [currentUser, setCurrentUser] = useState<UserType | null>(null)
+  const [pending, setPending] = useState<boolean>(true)
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user:any) => {
+    firebase.auth().onAuthStateChanged((user: UserType) => {
       setCurrentUser(user)
       setPending(false)
     })

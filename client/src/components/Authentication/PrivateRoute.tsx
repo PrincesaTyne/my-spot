@@ -1,11 +1,14 @@
 import React, { useContext} from 'react'
-import {Route, Redirect, RouteProps} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import {AuthContext} from './AuthContext'
 
+type PrivateRouteType = {
+    component: React.ElementType
+    path: string
+}
 
-
-const PrivateRoute: React.FC<RouteProps> = ({component: RouteComponent, ...rest }:any) => {
-    const {currentUser}: any = useContext(AuthContext)
+const PrivateRoute = ({component: RouteComponent, ...rest }: PrivateRouteType) => {
+    const {currentUser} = useContext(AuthContext)
 
     return (
         <Route 

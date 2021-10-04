@@ -1,27 +1,27 @@
 import React, { useState, useRef, useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import './DropdownMenu.css'
-import { map } from './Map'
+import '../css/components/DropdownMenu.css'
+import { map } from '../pages/Map'
 
 const DropdownMenu: React.FC = () => {
-    const dropdownRef = useRef<any>(null);
-    const [isActive, setIsActive] = useState(false)
+    const dropdownRef = useRef<HTMLDivElement>(null);
+    const [isActive, setIsActive] = useState<boolean>(false)
 
-    function menuClick(): void {
+    function menuClick() {
       setIsActive(!isActive)
     }
 
-    function satelliteView(): void {
+    function satelliteView() {
       map.setStyle('mapbox://styles/mapbox/satellite-v9')
     }
     
-    function mapView(): void{
+    function mapView(){
       map.setStyle('mapbox://styles/mapbox/streets-v11')
     }
 
     useEffect(() => {
-        const menuClickEvent = (e:any) => {
-          if (dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
+        const menuClickEvent = (e: MouseEvent) => {
+          if (dropdownRef.current !== null && !dropdownRef.current.contains(e.target as HTMLElement)) {
             setIsActive(!isActive);
           }
         };
